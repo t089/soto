@@ -241,7 +241,7 @@ let package = Package(
         .library(name: "XRay", targets: ["XRay"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/soto-project/soto-core.git", .upToNextMinor(from: "4.7.0")) 
+        .package(url: "https://github.com/t089/soto-core.git", .branch("fix-metadata-uri")) 
     ],
     targets: [
         .target(name: "ACM", dependencies: ["AWSSDKSwiftCore"], path: "./Sources/AWSSDKSwift/Services/ACM"),
