@@ -13,8 +13,12 @@
 //===----------------------------------------------------------------------===//
 
 import AsyncHTTPClient
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import struct Foundation.Date
 import typealias Foundation.TimeInterval
+#endif
 import SotoCore
 
 extension CognitoIdentity {

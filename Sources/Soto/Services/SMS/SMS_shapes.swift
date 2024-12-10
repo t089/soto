@@ -18,6 +18,8 @@
 #if os(Linux) && compiler(<5.10)
 // swift-corelibs-foundation hasn't been updated with Sendable conformances
 @preconcurrency import Foundation
+#elseif canImport(FoundationEssentials)
+import FoundationEssentials
 #else
 import Foundation
 #endif

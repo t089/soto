@@ -12,7 +12,11 @@
 //
 //===----------------------------------------------------------------------===//
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 import Logging
 
 import Crypto
@@ -236,6 +240,18 @@ extension S3 {
     }
 
     private func shortDateFormat(date: Date) -> String {
+        #if canImport(FoundationEssentials)
+        let formatStyle = Date.ISO8601FormatStyle()
+            .year()
+            .month()
+            .day()
+            .time()
+            .timeZone()
+            .dateSeparator(.dash)
+            .timeSeparator(.omitted)
+
+        return date.formatted(formatStyle)
+        #else
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions.insert(.withYear)
         formatter.formatOptions.insert(.withMonth)
@@ -247,9 +263,22 @@ extension S3 {
         let formattedDate = formatter.string(from: date)
 
         return formattedDate
+        #endif
     }
 
     private func longDateFormat(date: Date) -> String {
+        #if canImport(FoundationEssentials)
+        let formatStyle = Date.ISO8601FormatStyle()
+            .year()
+            .month()
+            .day()
+            .time()
+            .timeZone()
+            .dateSeparator(.dash)
+            .timeSeparator(.colon)
+
+        return date.formatted(formatStyle)
+        #else
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions.insert(.withYear)
         formatter.formatOptions.insert(.withMonth)
@@ -262,5 +291,6 @@ extension S3 {
         let formattedDate = formatter.string(from: date)
 
         return formattedDate
+        #endif
     }
 }

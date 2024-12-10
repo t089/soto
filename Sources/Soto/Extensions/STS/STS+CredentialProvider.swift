@@ -13,9 +13,13 @@
 //===----------------------------------------------------------------------===//
 
 import AsyncHTTPClient
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import struct Foundation.Date
 import typealias Foundation.TimeInterval
 import struct Foundation.UUID
+#endif 
 import NIOCore
 import NIOPosix
 import SotoCore
