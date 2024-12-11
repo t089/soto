@@ -433,8 +433,8 @@ let package = Package(
         .library(name: "SotoXRay", targets: ["SotoXRay"])
     ],
     dependencies: [
-        //.package(url: "https://github.com/soto-project/soto-core.git", from: "7.2.0")
-        .package(path: "../soto-core")
+        .package(url: "https://github.com/t089/soto-core.git", branch: "essentials")
+        //.package(path: "../soto-core")
     ],
     targets: [
         .target(name: "SotoACM", dependencies: [.product(name: "SotoCore", package: "soto-core")], path: "./Sources/Soto/Services/ACM", swiftSettings: swiftSettings),
