@@ -245,8 +245,8 @@ extension S3 {
             .year()
             .month()
             .day()
-            .time()
-            .timeZone()
+            .time(includingFractionalSeconds: false)
+            .timeZone(separator: .omitted)
             .dateSeparator(.dash)
             .timeSeparator(.omitted)
 
@@ -272,8 +272,8 @@ extension S3 {
             .year()
             .month()
             .day()
-            .time()
-            .timeZone()
+            .time(includingFractionalSeconds: false)
+            .timeZone(separator: .omitted)
             .dateSeparator(.dash)
             .timeSeparator(.colon)
 
